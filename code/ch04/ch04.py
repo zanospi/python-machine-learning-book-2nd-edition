@@ -184,9 +184,9 @@ imputed_data
 
 
 
-df = pd.DataFrame([['green', 'M', 10.1, 'class1'],
-                   ['red', 'L', 13.5, 'class2'],
-                   ['blue', 'XL', 15.3, 'class1']])
+df = pd.DataFrame([['green', 'M', 10.1, 'class2'],
+                   ['red', 'L', 13.5, 'class1'],
+                   ['blue', 'XL', 15.3, 'class2']])
 
 df.columns = ['color', 'size', 'price', 'classlabel']
 df
@@ -252,6 +252,8 @@ y
 # reverse mapping
 class_le.inverse_transform(y)
 
+
+# Note: The deprecation warning shown above is due to an implementation detail in scikit-learn. It was already addressed in a pull request (https://github.com/scikit-learn/scikit-learn/pull/9816), and the patch will be released with the next version of scikit-learn (i.e., v. 0.20.0).
 
 
 # ## Performing one-hot encoding on nominal features
@@ -411,6 +413,9 @@ LogisticRegression(penalty='l1')
 
 
 lr = LogisticRegression(penalty='l1', C=1.0)
+# Note that C=1.0 is the default. You can increase
+# or decrease it to make the regulariztion effect
+# stronger or weaker, respectively.
 lr.fit(X_train_std, y_train)
 print('Training accuracy:', lr.score(X_train_std, y_train))
 print('Test accuracy:', lr.score(X_test_std, y_test))
@@ -613,8 +618,8 @@ plt.show()
 
 sfm = SelectFromModel(forest, threshold=0.1, prefit=True)
 X_selected = sfm.transform(X_train)
-print('Number of samples that meet this criterion:', 
-      X_selected.shape[0])
+print('Number of features that meet this threshold criterion:', 
+      X_selected.shape[1])
 
 
 # Now, let's print the 3 features that met the threshold criterion for feature selection that we set earlier (note that this code snippet does not appear in the actual book but was added to this notebook later for illustrative purposes):

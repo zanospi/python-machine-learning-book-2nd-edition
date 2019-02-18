@@ -1,7 +1,7 @@
 # coding: utf-8
 
 
-from scipy.misc import comb
+from scipy.special import comb
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -541,7 +541,7 @@ df_wine.columns = ['Class label', 'Alcohol', 'Malic acid', 'Ash',
                    'Color intensity', 'Hue', 'OD280/OD315 of diluted wines',
                    'Proline']
 
-# if the Breast Cancer dataset is temporarily unavailable from the
+# if the Wine dataset is temporarily unavailable from the
 # UCI machine learning repository, un-comment the following line
 # of code to load the dataset from a local path:
 

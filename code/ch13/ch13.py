@@ -465,6 +465,18 @@ print(X_test_centered.shape, y_test.shape)
 
 
 
+# NOTE:
+# ================================================
+# If you have TensorFlow >= v1.4 installed
+# you can use the keras API directly instead
+# of importing it from the contrib module
+# for instance, in this code cell, you can skip
+# the import, and following code cells,
+# you can use 
+# `tf.keras.utils.to_categorical(y_train)`
+# instead of `keras.utils.to_categorical(y_train)`
+# and so forth.
+
 np.random.seed(123)
 tf.set_random_seed(123)
 
@@ -664,11 +676,6 @@ plt.show()
 # ---
 # 
 # Readers may ignore the next cell.
-
-
-
-
-
 
 
 
